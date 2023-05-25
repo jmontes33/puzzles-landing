@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
 
 const links = [
   {
@@ -40,10 +39,10 @@ function Navigation() {
   };
 
   return (
-    <header className="w-[80%] m-auto">
+    <header className="w-[80%] m-auto z-10 relative">
       <div className="hidden md:flex justify-between ">
         <Image src={"/logo.png"} alt="web-logo" width={100} height={100} />
-        <div className="flex fixed top-3 left-1/2 transform -translate-x-1/2 gap-3 bg-[#806D51] h-16 items-center p-2 rounded-[50px]">
+        <div className="flex fixed top-3 left-1/2 transform -translate-x-1/2 gap-3 bg-[#806D51] h-16 items-center p-2 rounded-[50px] transition-all duration-[500ms]">
           {active.map(({ label, link }) => (
             <Link key={label} href="">
               <li
