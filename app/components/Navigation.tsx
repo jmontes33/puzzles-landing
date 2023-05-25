@@ -28,7 +28,6 @@ function Navigation() {
 
   const handleClick = (label: string) => {
     const updateLink = active.map((link) => {
-      console.log(label);
       if (link.label === label) {
         return { ...link, link: true };
       } else {
