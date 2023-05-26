@@ -6,3 +6,7 @@
 html, body {
     background-color: #F0EDE8;
 }
+
+.bg-customColor {
+    background-color: rgba(101, 55, 39, 0.6);
+}

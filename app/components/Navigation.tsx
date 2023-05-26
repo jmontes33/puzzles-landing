@@ -8,18 +8,22 @@ const links = [
   {
     label: "Inicio",
     link: true,
+    path: "#inicio"
   },
   {
     label: "Historia",
     link: false,
+    path: "#historia"
   },
   {
     label: "Productos",
     link: false,
+    path: "#productos"
   },
   {
     label: "Contacto",
     link: false,
+    path: "#contacto"
   },
 ];
 
@@ -42,8 +46,8 @@ function Navigation() {
       <div className="hidden md:flex justify-between ">
         <Image src={"/logo.png"} alt="web-logo" width={100} height={100} />
         <div className="flex fixed top-3 left-1/2 transform -translate-x-1/2 gap-3 bg-[#806D51] h-16 items-center p-2 rounded-[50px] transition-all duration-[500ms]">
-          {active.map(({ label, link }) => (
-            <Link key={label} href="">
+          {active.map(({ label, link, path }) => (
+            <Link key={label} href={path}>
               <li
                 onClick={() => handleClick(label)}
                 className={
