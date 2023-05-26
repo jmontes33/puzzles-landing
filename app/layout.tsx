@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import MainSection from "./components/MainSection";
 import History from "./components/History";
 import Products from "./components/Products";
+import Contact from "./components/Contact";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
         <MainSection />
         <History />
         <Products />
+        <Contact />
       </body>
     </html>
   );
