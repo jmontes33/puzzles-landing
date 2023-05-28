@@ -49,63 +49,147 @@ function Products() {
   };
 
   return (
-    <div className="w-[80%] m-auto mb-10 " id="productos">
-      <h1 className="text-center font-bold text-5xl m-16">Productos</h1>
-      <div className="grid grid-cols-2 gap-16">
+    <div id="productos">
+      <div className="hidden w-[100%] sm:flex flex-col items-center mb-[20vw] ">
+        <h1 className="text-center font-bold text-5xl m-16">Productos</h1>
+        <div className="grid grid-cols-2 gap-16 px-10">
+          {products.map((item) => (
+            <div key={item.name} className="drop-shadow-lg">
+              <Image
+                className="m-auto cursor-pointer shadow-lg rounded-lg"
+                src={item.image}
+                alt="wood-product"
+                height={600}
+                width={600}
+              />
+              <div
+                onClick={() => handleClick(item.name)}
+                className="absolute top-0 left-0 z-50 flex w-full h-full overflow-hidden transition duration-300 bg-black opacity-0 hover:opacity-40 rounded-lg"
+              >
+                <p className="flex items-center justify-center w-full h-full text-2xl font-semibold text-white cursor-pointer">
+                  Ver
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
         {products.map((item) => (
-          <Image
-            className="m-auto cursor-pointer shadow-lg"
-            src={item.image}
-            alt="wood-product"
-            height={400}
-            width={400}
-            onClick={() => handleClick(item.name)}
-          />
-        ))}
-      </div>
-      {products.map((item) => (
-        <div
-          className={
-            item.name === active
-              ? "fixed top-0 left-0 flex justify-between px-16 items-center h-screen w-screen bg-black bg-opacity-50"
-              : "hidden"
-          }
-        >
-          <button
-            onClick={() => closeImage()}
-            className="fixed top-16 right-16 font-bold text-2xl border-2 border-white px-3 py-1 hover:bg-white transition-all"
-          >
-            X
-          </button>
-          <p
-            onClick={() => previousProduct()}
-            className="text-2xl cursor-pointer hover:bg-[#6D310E] transition-all bg-[#806D51] text-white py-3 px-5 rounded-[50px]"
-          >
-            Anterior
-          </p>
           <div
+            key={item.name}
             className={
               item.name === active
-                ? "flex fixed left-[25vw] top-[23vw] bg-slate-500"
+                ? "fixed z-10 top-0 left-0 flex justify-between px-16 items-center h-screen w-screen bg-black bg-opacity-70"
                 : "hidden"
             }
           >
-            <Image
-              src={item.image}
-              alt="wood-product"
-              width={600}
-              height={100}
-              className="shadow-2xl border-white border-2"
-            />
+            <div
+              className={
+                item.name === active
+                  ? "flex fixed m-auto bg-slate-500"
+                  : "hidden"
+              }
+            >
+              <div className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen">
+                <button
+                  onClick={() => closeImage()}
+                  className="fixed top-16 right-16 font-bold text-3xl px-3 py-1 text-white"
+                >
+                  X
+                </button>
+                <p
+                  onClick={() => previousProduct()}
+                  className="text-2xl font-bold mr-[15%] cursor-pointer hover:bg-[#6D310E] transition-all bg-[#806D51] text-white py-3 px-5 rounded-[50px]"
+                >
+                  {"<"}
+                </p>
+                <Image
+                  src={item.image}
+                  alt="wood-product"
+                  width={800}
+                  height={100}
+                  className="drop-shadow-lg rounded-xl"
+                />
+                <p
+                  onClick={() => nextProduct()}
+                  className="text-2xl font-bold ml-[15%] cursor-pointer hover:bg-[#6D310E] transition-all bg-[#806D51] text-white py-3 px-5 rounded-[50px]"
+                >
+                  {">"}
+                </p>
+              </div>
+            </div>
           </div>
-          <p
-            onClick={() => nextProduct()}
-            className="text-2xl cursor-pointer hover:bg-[#6D310E] transition-all bg-[#806D51] text-white py-3 px-5 rounded-[50px]"
-          >
-            Siguiente
-          </p>
+        ))}
+      </div>
+      <div className="sm:hidden w-[100%] flex flex-col items-center mb-4">
+        <h1 className="text-center font-bold text-3xl my-4">Productos</h1>
+        <div className="grid grid-cols-2 gap-4 px-10">
+          {products.map((item) => (
+            <div key={item.name} className="drop-shadow-lg">
+              <Image
+                className="m-auto cursor-pointer shadow-lg rounded-lg"
+                src={item.image}
+                alt="wood-product"
+                height={600}
+                width={600}
+              />
+              <div
+                onClick={() => handleClick(item.name)}
+                className="absolute top-0 left-0 z-50 flex w-full h-full overflow-hidden transition duration-300 bg-black opacity-0 hover:opacity-40 rounded-lg"
+              >
+                <p className="flex items-center justify-center w-full h-full text-2xl font-semibold text-white cursor-pointer">
+                  Ver
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+        {products.map((item) => (
+          <div
+            key={item.name}
+            className={
+              item.name === active
+                ? "fixed z-10 top-0 left-0 flex justify-between px-16 items-center h-screen w-screen bg-black bg-opacity-70"
+                : "hidden"
+            }
+          >
+            <div
+              className={
+                item.name === active
+                  ? "flex fixed m-auto bg-slate-500"
+                  : "hidden"
+              }
+            >
+              <div className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen">
+                <button
+                  onClick={() => closeImage()}
+                  className="fixed top-48 right-8 font-bold text-3xl px-3 py-1 text-white"
+                >
+                  X
+                </button>
+                <p
+                  onClick={() => previousProduct()}
+                  className="text-2xl font-bold cursor-pointer hover:bg-[#6D310E] transition-all bg-[#806D51] text-white py-3 px-5 rounded-[50px]"
+                >
+                  {"<"}
+                </p>
+                <Image
+                  src={item.image}
+                  alt="wood-product"
+                  width={800}
+                  height={100}
+                  className="drop-shadow-lg rounded-xl"
+                />
+                <p
+                  onClick={() => nextProduct()}
+                  className="text-2xl font-bold cursor-pointer hover:bg-[#6D310E] transition-all bg-[#806D51] text-white py-3 px-5 rounded-[50px]"
+                >
+                  {">"}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
