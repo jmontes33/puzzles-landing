@@ -50,7 +50,7 @@ function Products() {
 
   return (
     <div id="productos">
-      <div className="hidden w-[100%] sm:flex flex-col items-center mb-[20vw] ">
+      <div className="hidden w-[100%] sm:flex flex-col items-center xl:mb-[20vw]">
         <h1 className="text-center font-bold text-5xl m-16">Productos</h1>
         <div className="grid grid-cols-2 gap-16 px-10">
           {products.map((item) => (

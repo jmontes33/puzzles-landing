@@ -4,7 +4,7 @@ import Image from "next/image";
 function Contact() {
   return (
     <div id="contacto">
-      <div className="hidden w-[100%] m-auto z-0 sm:flex items-center justify-end">
+      <div className="hidden w-[100%] m-auto z-0 lg:flex items-center justify-end">
         <Image
           src={"/final2.png"}
           alt="wine-and-wood"
@@ -59,10 +59,10 @@ function Contact() {
           </div>
         </div>
       </div>
-      <h1 className="sm:hidden text-center text-3xl font-bold py-4">
+      <h1 className="lg:hidden text-center text-3xl font-bold py-4">
         Contacto
       </h1>
-      <div className="sm:hidden w-[100%] z-0 flex px-9 mb-5">
+      <div className="lg:hidden w-[100%] z-0 flex px-9 mb-5">
         <div className="flex flex-col bg-opacity-60 gap-5 bg-customColor p-3 rounded-2xl">
           <p className="text-white text-lg text-center">
             Hago todos los pedidos a medida y con las características que el
@@ -112,6 +112,7 @@ function Contact() {
         alt="wine-and-wood"
         width={2000}
         height={100}
+        className="lg:hidden"
       />
     </div>
   );
